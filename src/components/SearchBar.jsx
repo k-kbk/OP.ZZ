@@ -1,21 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Search from '../assets/search.png';
 
 const SearchBar = (props) => {
+  const [input, setInput] = useState('');
+  const navigate = useNavigate();
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
+  const changeHandler = (e) => {
+    setInput(e.target.value);
+  };
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    await axios
+      .get(
+        `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${input}`,
+        { params: { api_key: API_KEY } }
+      )
+      .then((res) => {
+        navigate(`/summoner/${input}`, { state: res.data });
+      })
+      .catch((err) => {});
+  };
+
   return (
     <form
+      onSubmit={submitHandler}
       className={
         'max-w-lg flex justify-center rounded-md bg-white ' + props.formStyle
       }>
       <input
         type='text'
+        value={input}
         placeholder='소환사명을 입력해주세요'
         className={
-          'w-full font-medium px-2 py-3 mx-2 focus:outline-none placeholder:font-normal placeholder:opacity-30 placeholder:text-gray-700'
+          'w-full font-medium mx-3 my-3 sm:mx-4 focus:outline-none placeholder:font-normal placeholder:opacity-30 placeholder:text-gray-700'
         }
+        onChange={changeHandler}
       />
-      <button type='submit' className='px-3 sm:px-5'>
-        <img src={Search} alt='search' className='max-w-5 max-h-5' />
+      <button type='submit' className='px-3 sm:px-4'>
+        <img src={Search} alt='search' className='max-w-6 max-h-6' />
       </button>
     </form>
   );
