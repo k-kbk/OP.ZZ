@@ -19,6 +19,7 @@ const SearchBar = (props) => {
         { params: { api_key: API_KEY } }
       )
       .then((res) => {
+        setInput('');
         navigate(`/summoner/${input}`, { state: res.data });
       })
       .catch((err) => {});
@@ -28,18 +29,19 @@ const SearchBar = (props) => {
     <form
       onSubmit={submitHandler}
       className={
-        'max-w-lg flex justify-center rounded-md bg-white ' + props.formStyle
+        'max-w-lg flex justify-center rounded-md bg-white ' + props.formCss
       }>
       <input
         type='text'
         value={input}
         placeholder='소환사명을 입력해주세요'
         className={
-          'w-full font-medium mx-3 my-3 sm:mx-4 focus:outline-none placeholder:font-normal placeholder:opacity-30 placeholder:text-gray-700'
+          'w-full font-medium focus:outline-none placeholder:font-normal placeholder:opacity-30 placeholder:text-gray-700 ' +
+          props.inputCss
         }
         onChange={changeHandler}
       />
-      <button type='submit' className='px-3 sm:px-4'>
+      <button type='submit' className={props.buttonCss}>
         <img src={Search} alt='search' className='max-w-6 max-h-6' />
       </button>
     </form>
