@@ -29,7 +29,8 @@ const SearchBar = (props) => {
     <form
       onSubmit={submitHandler}
       className={
-        'max-w-lg flex justify-center rounded-md bg-white ' + props.formCss
+        'max-w-lg flex justify-center rounded-md bg-white shadow-md ' +
+        props.formCss
       }>
       <input
         type='text'

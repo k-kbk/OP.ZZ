@@ -5,7 +5,7 @@ import WorldsImg from '../components/WorldsImg';
 
 const Home = () => {
   return (
-    <main className='max-w-screen-lg w-full h-full flex flex-col justify-center items-center drop-shadow-sm'>
+    <main className='max-w-screen-lg w-full h-full flex flex-col justify-center items-center'>
       <Logo css='text-6xl sm:text-7xl' />
       <SearchBar
         formCss='sm:w-2/3 my-10'
