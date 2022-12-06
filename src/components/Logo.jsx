@@ -1,7 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Logo = () => {
-  return <p className='font-[MyLotte] text-6xl sm:text-7xl'>OP.ZZ</p>;
+const Logo = (props) => {
+  return (
+    <div>
+      <Link to={'/'} className={'font-[MyLotte] ' + props.css}>
+        OP.ZZ
+      </Link>
+    </div>
+  );
 };
 
 export default Logo;
