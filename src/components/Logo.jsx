@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Logo = (props) => {
   return (
     <div className='drop-shadow-md'>
-      <Link to={'/'} className={'font-[MyLotte] ' + props.css}>
+      <Link to={'/'} className={'font-BlackOpsOne ' + props.css}>
         OP.ZZ
       </Link>
     </div>
