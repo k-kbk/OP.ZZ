@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Search from '../assets/search.png';
 
 const SearchBar = (props) => {
   const [input, setInput] = useState('');
@@ -29,21 +28,24 @@ const SearchBar = (props) => {
     <form
       onSubmit={submitHandler}
       className={
-        'max-w-lg flex justify-center rounded-md bg-white shadow-md ' +
-        props.formCss
+        'flex justify-center rounded-md bg-white shadow ' + props.formCss
       }>
       <input
         type='text'
         value={input}
         placeholder='소환사명을 입력해주세요'
         className={
-          'w-full font-medium focus:outline-none placeholder:font-normal placeholder:opacity-30 placeholder:text-gray-700 ' +
+          'w-full font-semibold focus:outline-none placeholder:font-normal placeholder:opacity-30 placeholder:text-gray-700 ' +
           props.inputCss
         }
         onChange={changeHandler}
       />
       <button type='submit' className={props.buttonCss}>
-        <img src={Search} alt='search' className='max-w-6 max-h-6' />
+        <img
+          src={`${process.env.PUBLIC_URL}/images/search.png`}
+          alt='search'
+          className='max-w-6 max-h-6'
+        />
       </button>
     </form>
   );
