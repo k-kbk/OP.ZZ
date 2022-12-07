@@ -1,17 +1,16 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import Nav from '../components/Nav';
-import SummonerInfo from '../components/SummonerInfo';
-import MatchHistory from '../components/MatchHistory';
+import SummonerInfo from '../components/Summoner/SummonerInfo';
+import MatchHistory from '../components/Match/MatchHistory';
 
 const SummonerPage = () => {
-  const location = useLocation();
-  console.log(location.state);
   return (
     <>
       <Nav />
-      <SummonerInfo />
-      <MatchHistory />
+      <main className='max-w-4xl w-full h-auto flex flex-col justify-center items-center'>
+        <SummonerInfo />
+        <MatchHistory />
+      </main>
     </>
   );
 };
