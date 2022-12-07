@@ -22,6 +22,7 @@ const SummonerRank = memo((props) => {
           }
         )
         .then((res) => {
+          console.log(res);
           setRankedSolo(res.data[0]);
           setRankedFlex(res.data[1]);
         });

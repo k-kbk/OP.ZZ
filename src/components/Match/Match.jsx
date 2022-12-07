@@ -49,10 +49,10 @@ const Match = memo((props) => {
     <>
       {userData && (
         <li
-          className={`max-w-screen-md w-full h-28 flex justify-center items-center ${
+          className={`max-w-[46rem] w-full h-28 flex justify-center items-center ${
             userData.win ? 'bg-blue-400' : 'bg-red-400'
           } rounded-md bg-opacity-30`}>
-          <div className='w-2/12  flex flex-col ml-5'>
+          <div className='w-2/12 flex flex-col items-start ml-4'>
             <p className='font-semibold text-xs'>{gameMode[match.gameMode]}</p>
             <p className='font-semibold text-xs mb-1'>{`${new Date(
               match.gameStartTimestamp
@@ -136,7 +136,7 @@ const Match = memo((props) => {
               </div>
             </div>
           </div>
-          <div className='w-1/12 flex flex-col font-semibold text-xs mr-3'>
+          <div className='w-[10%] flex flex-col font-semibold text-xs mr-3'>
             {match.gameMode === 'CLASSIC' && (
               <p className='text-red-600'>{`킬관여율 ${(
                 userData.challenges.killParticipation * 100
