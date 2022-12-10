@@ -47,14 +47,12 @@ const Match = memo((props) => {
     <>
       {userData && (
         <li
-          className={`max-w-[46rem] w-full h-28 flex justify-center items-center ${
+          className={`sm:max-w-[46rem] w-full h-28 flex justify-center items-center ${
             userData.win ? 'bg-blue-400' : 'bg-red-400'
           } rounded-md bg-opacity-30`}>
-          <div className='sm:w-2/12 flex flex-col items-start ml-3 sm:ml-4'>
-            <p className='font-semibold text-[0.5rem] sm:text-xs'>
-              {gameMode[match.gameMode]}
-            </p>
-            <p className='font-semibold text-[0.5rem] sm:text-xs mb-1'>{`${new Date(
+          <div className='w-3/12 sm:w-2/12 flex flex-col items-start sm:ml-4 pl-2'>
+            <p className='font-semibold text-xs'>{gameMode[match.gameMode]}</p>
+            <p className='font-semibold text-xs mb-1'>{`${new Date(
               match.gameStartTimestamp
             ).toLocaleDateString()}`}</p>
             <p
@@ -63,7 +61,7 @@ const Match = memo((props) => {
               }`}>
               {userData.win ? '승리' : '패배'}
             </p>
-            <p className='font-semibold text-[0.5rem] sm:text-xs'>{`${Math.floor(
+            <p className='font-semibold text-xs'>{`${Math.floor(
               match.gameDuration / 60
             )}분 ${match.gameDuration % 60}초`}</p>
           </div>
@@ -78,7 +76,7 @@ const Match = memo((props) => {
                   }.png`}
                   alt='champion'
                 />
-                <p className='font-semibold text-[0.5rem] sm:text-xs text-white absolute bottom-0 right-0 z-10 sm:p-0.5 bg-black bg-opacity-60'>
+                <p className='font-semibold text-xs text-white absolute bottom-0 right-0 z-10 sm:p-0.5 bg-black bg-opacity-60'>
                   {userData.champLevel}
                 </p>
               </div>
@@ -104,7 +102,7 @@ const Match = memo((props) => {
                 </div>
                 {
                   <p
-                    className={`font-semibold text-[0.5rem] sm:text-xs ${
+                    className={`font-semibold text-xs ${
                       (userData.kills + userData.assists) / userData.deaths >= 5
                         ? 'text-orange-500'
                         : 'text-emerald-500'
@@ -135,7 +133,7 @@ const Match = memo((props) => {
               </div>
             </div>
           </div>
-          <div className='sm:w-[10%] flex flex-col font-semibold text-[0.5rem] sm:text-xs mr-3'>
+          <div className='w-3/12 sm:w-[10%] flex flex-col font-semibold text-xs sm:mr-3'>
             {match.gameMode === 'CLASSIC' && (
               <p className='text-red-600'>{`킬관여율 ${(
                 userData.challenges.killParticipation * 100
@@ -146,7 +144,7 @@ const Match = memo((props) => {
             <p>{`골드 ${userData.goldEarned.toLocaleString()}`}</p>
           </div>
           <div className='w-4/12 hidden sm:flex justify-end gap-1'>
-            <ul className='w-5/12 font-semibold text-[0.5rem] sm:text-xs flex flex-col gap-0.5 '>
+            <ul className='w-5/12 font-semibold text-xs flex flex-col gap-0.5 '>
               {team1.map((player) => {
                 return (
                   <li key={player.summonerName} className='flex flex-row'>

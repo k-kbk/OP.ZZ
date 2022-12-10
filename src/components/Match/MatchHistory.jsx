@@ -109,7 +109,7 @@ const MatchHistory = (props) => {
   }, [matchIds]);
 
   return (
-    <div className='max-w-4xl w-4/5 sm:w-full mb-3'>
+    <div className='max-w-4xl w-5/6 mb-3'>
       <div className='mb-4 border-b border-myGray'>
         <p className='font-bold text-base sm:text-lg text-myIndigo pb-2'>
           전체
