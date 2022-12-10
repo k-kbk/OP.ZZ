@@ -10,6 +10,7 @@ const SearchBar = (props) => {
   const changeHandler = (e) => {
     setInput(e.target.value);
   };
+
   const submitHandler = async (e) => {
     e.preventDefault();
     await axios

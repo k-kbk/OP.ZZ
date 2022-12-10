@@ -23,23 +23,25 @@ const SummonerRank = memo((props) => {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
-    const getLeagueData = async () => {
-      await axios
-        .get(
-          `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${summoner.id}`,
-          {
-            params: {
-              api_key: API_KEY,
-            },
-          }
-        )
-        .then((res) => {
-          setRankedSolo(res.data[0]);
-          setRankedFlex(res.data[1]);
-          setLoading(false);
-        });
-    };
-    getLeagueData();
+    if (summoner) {
+      const getLeagueData = async () => {
+        await axios
+          .get(
+            `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${summoner.id}`,
+            {
+              params: {
+                api_key: API_KEY,
+              },
+            }
+          )
+          .then((res) => {
+            setRankedSolo(res.data[0]);
+            setRankedFlex(res.data[1]);
+            setLoading(false);
+          });
+      };
+      getLeagueData();
+    }
   }, [summoner]);
 
   return (

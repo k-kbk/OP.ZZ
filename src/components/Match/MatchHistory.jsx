@@ -61,23 +61,25 @@ const MatchHistory = (props) => {
   };
 
   const moreLoadingHandler = () => {
-    setMoreLoading(true);
-    getMatchIds();
+    if (summoner) {
+      setMoreLoading(true);
+      getMatchIds();
+    }
     return;
   };
 
   useEffect(() => {
-    setLoading(true);
-    getMatchIds();
+    if (summoner) {
+      setLoading(true);
+      getMatchIds();
+    }
     return () => {
-      console.log('clean up');
       setStart(0);
     };
   }, [summoner]);
 
   useEffect(() => {
     if (matchIds.length !== 0) {
-      console.log('here');
       (async function () {
         await Promise.all(
           matchIds.map((matchId) => {
@@ -89,18 +91,15 @@ const MatchHistory = (props) => {
               (item) => item.data.info.gameCreation !== 0
             );
             const newMatchData = correctData.map((item) => item.data.info);
-            console.log('get match data');
             setMatchData((prev) => [...prev, ...newMatchData]);
             setLoading(false);
             setMoreLoading(false);
-            console.log('change');
             return;
           })
           .catch((err) => {
             console.log(err);
             setLoading(false);
             setMoreLoading(false);
-            console.log(loading);
             return;
           });
       })();
