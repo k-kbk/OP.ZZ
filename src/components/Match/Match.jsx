@@ -158,8 +158,8 @@ const Match = memo((props) => {
                   : (userData.challenges.killParticipation * 100).toFixed()
               }%`}</p>
             )}
-            <p>{`CS ${userData.totalMinionsKilled}`}</p>
             <p>{`제어와드 ${userData.visionWardsBoughtInGame}`}</p>
+            <p>{`CS ${userData.totalMinionsKilled}`}</p>
             <p>{`${userData.goldEarned.toLocaleString()} G`}</p>
           </div>
           <div className='w-4/12 hidden sm:flex justify-end mt-0.5'>
