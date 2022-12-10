@@ -10,7 +10,7 @@ const Item = memo((props) => {
           <img src={`${IMG_URL}/item/${props.data}.png`} alt='item5' />
         </div>
       ) : (
-        <div className='w-4 h-4 sm:w-6 sm:h-6 bg-myGray bg-opacity-30 rounded-sm'></div>
+        <div className='w-4 h-4 sm:w-6 sm:h-6 bg-myGray bg-opacity-50 rounded-sm'></div>
       )}
     </>
   );
