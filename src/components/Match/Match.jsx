@@ -64,10 +64,10 @@ const Match = memo((props) => {
     <>
       {userData && (
         <li
-          className={`sm:max-w-[46rem] w-full h-28 flex justify-center items-center mb-3 ${
+          className={`sm:max-w-[46rem] w-full h-28 flex justify-end sm:justify-center items-center mb-3 ${
             userData.win ? 'bg-blue-400' : 'bg-red-400'
           } rounded-md bg-opacity-30`}>
-          <div className='w-3/12 sm:w-2/12 flex flex-col items-start ml-3 sm:ml-5'>
+          <div className='w-[27%] sm:w-2/12 flex flex-col pl-2 sm:ml-3 sm:mr-0'>
             <p className='font-semibold text-xs'>{gameMode[match.gameMode]}</p>
             <p className='font-semibold text-xs mb-1'>{`${new Date(
               match.gameStartTimestamp
@@ -82,7 +82,7 @@ const Match = memo((props) => {
               match.gameDuration / 60
             )}분 ${match.gameDuration % 60}초`}</p>
           </div>
-          <div className='w-5/12 sm:w-3/12 flex flex-col items-center mr-2 sm:mr-6'>
+          <div className='w-[43%] sm:w-[28%] flex flex-col items-start pl-2 sm:mr-3'>
             <div className='flex justify-start items-center'>
               <div className='w-8 sm:w-12 relative rounded-sm overflow-hidden'>
                 <img
@@ -150,18 +150,20 @@ const Match = memo((props) => {
               </div>
             </div>
           </div>
-          <div className='w-3/12 sm:w-[10%] flex flex-col font-semibold text-xs sm:mr-3'>
+          <div className='w-[21%] sm:w-[11%] flex flex-col font-semibold text-xs ml-2 mr-1'>
             {match.gameMode === 'CLASSIC' && (
-              <p className='text-red-600'>{`킬관여율 ${(
-                userData.challenges.killParticipation * 100
-              ).toFixed()}%`}</p>
+              <p className='text-red-600'>{`KP ${
+                isNaN(userData.challenges.killParticipation)
+                  ? 0
+                  : (userData.challenges.killParticipation * 100).toFixed()
+              }%`}</p>
             )}
             <p>{`CS ${userData.totalMinionsKilled}`}</p>
             <p>{`제어와드 ${userData.visionWardsBoughtInGame}`}</p>
-            <p>{`골드 ${userData.goldEarned.toLocaleString()}`}</p>
+            <p>{`${userData.goldEarned.toLocaleString()} G`}</p>
           </div>
           <div className='w-4/12 hidden sm:flex justify-end mt-0.5'>
-            <ul className='w-5/12 font-semibold text-xs flex flex-col'>
+            <ul className='w-[45%] font-semibold text-xs flex flex-col sm:pl-1'>
               {team1.map((player) => {
                 return (
                   <li
@@ -181,15 +183,15 @@ const Match = memo((props) => {
                       onClick={clickNameHandler}
                       href={`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${player.summonerName}`}
                       className='pl-1 hover:underline'>
-                      {player.summonerName.length > 6
-                        ? player.summonerName.substr(0, 6) + '...'
+                      {player.summonerName.length > 5
+                        ? player.summonerName.substr(0, 5) + '...'
                         : player.summonerName}
                     </a>
                   </li>
                 );
               })}
             </ul>
-            <ul className='w-5/12 font-semibold text-xs flex flex-col'>
+            <ul className='w-[45%] font-semibold text-xs flex flex-col sm:pl-1'>
               {team2.map((player) => {
                 return (
                   <li
@@ -209,8 +211,8 @@ const Match = memo((props) => {
                       onClick={clickNameHandler}
                       href={`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${player.summonerName}`}
                       className='pl-1 hover:underline'>
-                      {player.summonerName.length > 6
-                        ? player.summonerName.substr(0, 6) + '...'
+                      {player.summonerName.length > 5
+                        ? player.summonerName.substr(0, 5) + '...'
                         : player.summonerName}
                     </a>
                   </li>
