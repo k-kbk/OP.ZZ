@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+@font-face {
+  font-family: 'MyLotte';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.0/MyLotteBold.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+html,
+body,
+#root,
+.App {
+  font-family: 'Pretendard Variable';
+  -webkit-font-smoothing: antialiased;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  color: rgb(45, 45, 45);
+  background-color: rgb(245, 245, 245);
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
