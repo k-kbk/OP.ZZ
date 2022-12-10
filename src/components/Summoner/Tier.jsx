@@ -24,7 +24,7 @@ const Tier = memo((props) => {
       <p className='font-semibold text-myIndigo text-xs sm:text-base text-center opacity-70'>
         {QueueType[queueType]}
       </p>
-      <div className='flex justify-center items-center gap-4'>
+      <div className='flex justify-center items-center'>
         <div className='w-12 h-12 sm:w-16 sm:h-16'>
           <img
             src={`${
@@ -33,7 +33,7 @@ const Tier = memo((props) => {
             alt='tier'
           />
         </div>
-        <div>
+        <div className='ml-4'>
           <p className='font-bold text-sm sm:text-lg mt-3'>{`${tier} ${Rank[rank]}`}</p>
           <p className='font-semibold text-xs sm:text-sm mb-1'>{`${leaguePoints} LP`}</p>
           <p className='font-semibold text-xs sm:text-sm'>{`승률 ${winRate}% (${wins}승 ${losses}패)`}</p>

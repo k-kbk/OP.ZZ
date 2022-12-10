@@ -64,10 +64,10 @@ const Match = memo((props) => {
     <>
       {userData && (
         <li
-          className={`sm:max-w-[46rem] w-full h-28 flex justify-center items-center gap-2 ${
+          className={`sm:max-w-[46rem] w-full h-28 flex justify-center items-center mb-3 ${
             userData.win ? 'bg-blue-400' : 'bg-red-400'
           } rounded-md bg-opacity-30`}>
-          <div className='w-3/12 sm:w-2/12 flex flex-col items-start sm:ml-4 pl-2'>
+          <div className='w-3/12 sm:w-2/12 flex flex-col items-start sm:ml-4 pl-4 mr-2'>
             <p className='font-semibold text-xs'>{gameMode[match.gameMode]}</p>
             <p className='font-semibold text-xs mb-1'>{`${new Date(
               match.gameStartTimestamp
@@ -82,7 +82,7 @@ const Match = memo((props) => {
               match.gameDuration / 60
             )}분 ${match.gameDuration % 60}초`}</p>
           </div>
-          <div className='w-5/12 sm:w-3/12 flex flex-col items-center sm:mr-6'>
+          <div className='w-5/12 sm:w-3/12 flex flex-col items-center mr-2 sm:mr-6'>
             <div className='flex justify-start items-center'>
               <div className='w-8 sm:w-12 relative rounded-sm overflow-hidden'>
                 <img
@@ -160,11 +160,13 @@ const Match = memo((props) => {
             <p>{`제어와드 ${userData.visionWardsBoughtInGame}`}</p>
             <p>{`골드 ${userData.goldEarned.toLocaleString()}`}</p>
           </div>
-          <div className='w-4/12 hidden sm:flex justify-end gap-1'>
-            <ul className='w-5/12 font-semibold text-xs flex flex-col gap-0.5 '>
+          <div className='w-4/12 hidden sm:flex justify-end'>
+            <ul className='w-5/12 font-semibold text-xs flex flex-col'>
               {team1.map((player) => {
                 return (
-                  <li key={player.summonerName} className='flex flex-row'>
+                  <li
+                    key={player.summonerName}
+                    className='flex flex-row mb-0.5'>
                     <div className='w-4 rounded-sm overflow-hidden'>
                       <img
                         src={`${IMG_URL}/champion/${
@@ -187,10 +189,12 @@ const Match = memo((props) => {
                 );
               })}
             </ul>
-            <ul className='w-5/12 font-semibold text-xs flex flex-col gap-0.5 '>
+            <ul className='w-5/12 font-semibold text-xs flex flex-col'>
               {team2.map((player) => {
                 return (
-                  <li key={player.summonerName} className='flex flex-row'>
+                  <li
+                    key={player.summonerName}
+                    className='flex flex-row mb-0.5'>
                     <div className='w-4 rounded-sm overflow-hidden'>
                       <img
                         src={`${IMG_URL}/champion/${

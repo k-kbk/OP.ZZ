@@ -120,7 +120,7 @@ const MatchHistory = (props) => {
         </div>
       ) : (
         <>
-          <ul className='w-full flex flex-col items-center gap-3'>
+          <ul className='w-full flex flex-col items-center'>
             {matchData.length !== 0 &&
               matchData.map((match) => (
                 <Match key={summoner.puuid + match.gameId} data={match} />
