@@ -5,10 +5,12 @@ import SummonerRank from './SummonerRank.jsx';
 
 const SummonerInfo = () => {
   return (
-    <header className='w-full flex flex-col'>
-      <SummonerProfile />
-      <SummonerRank />
-    </header>
+    <div className='w-full flex justify-center'>
+      <header className='max-w-4xl w-full flex flex-col items-center'>
+        <SummonerProfile />
+        <SummonerRank />
+      </header>
+    </div>
   );
 };
 

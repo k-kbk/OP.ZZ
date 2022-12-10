@@ -20,12 +20,12 @@ const Tier = memo((props) => {
   );
 
   return (
-    <div className='flex flex-col px-16 mt-1'>
-      <p className='font-semibold text-myIndigo text-center opacity-70'>
+    <div className='flex flex-col px-16 mt-5 sm:mt-1'>
+      <p className='font-semibold text-myIndigo text-sm sm:text-base text-center opacity-70'>
         {QueueType[queueType]}
       </p>
       <div className='flex justify-center items-center gap-4'>
-        <div className='w-16 h-16'>
+        <div className='w-12 h-12 sm:w-16 sm:h-16'>
           <img
             src={`${
               process.env.PUBLIC_URL
@@ -34,9 +34,9 @@ const Tier = memo((props) => {
           />
         </div>
         <div>
-          <p className='font-bold text-lg mt-3'>{`${tier} ${Rank[rank]}`}</p>
-          <p className='font-semibold text-sm mb-1'>{`${leaguePoints} LP`}</p>
-          <p className='font-semibold text-sm'>{`승률 ${winRate}% (${wins}승 ${losses}패)`}</p>
+          <p className='font-bold text-base sm:text-lg mt-3'>{`${tier} ${Rank[rank]}`}</p>
+          <p className='font-semibold text-xs sm:text-sm mb-1'>{`${leaguePoints} LP`}</p>
+          <p className='font-semibold text-xs sm:text-sm'>{`승률 ${winRate}% (${wins}승 ${losses}패)`}</p>
         </div>
       </div>
     </div>

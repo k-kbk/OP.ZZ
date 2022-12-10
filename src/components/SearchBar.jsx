@@ -20,8 +20,12 @@ const SearchBar = (props) => {
       .then((res) => {
         setInput('');
         navigate(`/summoner/${input}`, { state: res.data });
+        window.location.reload();
       })
-      .catch((err) => {});
+      .catch((err) => {
+        alert('소환사를 찾을 수 없습니다.');
+        setInput('');
+      });
   };
 
   return (
