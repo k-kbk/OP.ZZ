@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { memo, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Item from './Item';
 
 const spell = {
@@ -31,8 +32,23 @@ const Match = memo((props) => {
   const [userData, setUserData] = useState(null);
   const [team1, setTeam1] = useState(null);
   const [team2, setTeam2] = useState(null);
-  const { REACT_APP_IMG_URL: IMG_URL } = process.env;
+  const navigate = useNavigate();
+  const { REACT_APP_IMG_URL: IMG_URL, REACT_APP_API_KEY: API_KEY } =
+    process.env;
   const match = props.data;
+
+  const clickNameHandler = async (e) => {
+    e.preventDefault();
+    await axios
+      .get(e.target.href, { params: { api_key: API_KEY } })
+      .then((res) => {
+        navigate(`/summoner/${res.data.name}`, { state: res.data });
+        window.location.reload();
+      })
+      .catch((err) => {
+        alert('소환사를 찾을 수 없습니다.');
+      });
+  };
 
   useEffect(() => {
     if (match) {
@@ -43,6 +59,7 @@ const Match = memo((props) => {
       );
     }
   }, [match, summoner]);
+
   return (
     <>
       {userData && (
@@ -158,11 +175,14 @@ const Match = memo((props) => {
                         alt='champ'
                       />
                     </div>
-                    <p className='pl-1'>
+                    <a
+                      onClick={clickNameHandler}
+                      href={`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${player.summonerName}`}
+                      className='pl-1 hover:underline'>
                       {player.summonerName.length > 6
-                        ? player.summonerName.substr(0, 6) + '..'
+                        ? player.summonerName.substr(0, 6) + '...'
                         : player.summonerName}
-                    </p>
+                    </a>
                   </li>
                 );
               })}
@@ -181,11 +201,14 @@ const Match = memo((props) => {
                         alt='champ'
                       />
                     </div>
-                    <p className='pl-1'>
+                    <a
+                      onClick={clickNameHandler}
+                      href={`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${player.summonerName}`}
+                      className='pl-1 hover:underline'>
                       {player.summonerName.length > 6
-                        ? player.summonerName.substr(0, 6) + '..'
+                        ? player.summonerName.substr(0, 6) + '...'
                         : player.summonerName}
-                    </p>
+                    </a>
                   </li>
                 );
               })}
