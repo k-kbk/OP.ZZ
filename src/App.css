@@ -28,6 +28,13 @@ body,
 
   margin: 0 auto;
 
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
   color: rgb(45, 45, 45);
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(245, 245, 245);
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
