@@ -8,7 +8,7 @@ html,
 body,
 #root,
 .App {
-  font-family: 'Pretendard Variable';
+  font-family: 'Pretendard Variable', ui-sans-serif, system-ui, -apple-system;
   -webkit-font-smoothing: antialiased;
 
   width: 100%;
