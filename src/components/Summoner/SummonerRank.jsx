@@ -47,7 +47,7 @@ const SummonerRank = memo((props) => {
       {loading ? (
         <div className='h-56 sm:h-36 flex justify-center items-center bg-gray-100'></div>
       ) : (
-        <div className='flex flex-col sm:flex-row justify-center items-center pt-3 pb-5'>
+        <div className='flex flex-col sm:flex-row justify-center items-center pt-3 pb-3 sm:pb-5'>
           {rankedSolo && <Tier data={rankedSolo} />}
           {rankedFlex && <Tier data={rankedFlex} />}
         </div>

@@ -47,7 +47,7 @@ const Match = memo((props) => {
     <>
       {userData && (
         <li
-          className={`sm:max-w-[46rem] w-full h-28 flex justify-center items-center ${
+          className={`sm:max-w-[46rem] w-full h-28 flex justify-center items-center gap-2 ${
             userData.win ? 'bg-blue-400' : 'bg-red-400'
           } rounded-md bg-opacity-30`}>
           <div className='w-3/12 sm:w-2/12 flex flex-col items-start sm:ml-4 pl-2'>
@@ -65,7 +65,7 @@ const Match = memo((props) => {
               match.gameDuration / 60
             )}분 ${match.gameDuration % 60}초`}</p>
           </div>
-          <div className='w-1/2 sm:w-3/12 flex flex-col items-center sm:mr-6'>
+          <div className='w-5/12 sm:w-3/12 flex flex-col items-center sm:mr-6'>
             <div className='flex justify-start items-center'>
               <div className='w-8 sm:w-12 relative rounded-sm overflow-hidden'>
                 <img
