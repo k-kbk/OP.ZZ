@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 import SummonerInfo from '../components/Summoner/SummonerInfo';
 import MatchHistory from '../components/Match/MatchHistory';
 
@@ -27,6 +28,7 @@ const SummonerPage = () => {
           />
         </button>
       </main>
+      <Footer />
     </>
   );
 };
